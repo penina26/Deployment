@@ -1,0 +1,65 @@
+.img-container {
+    float: left;
+    width: 50%;
+  }
+
+.navbar-nav {
+    margin-left: auto;
+}
+
+.navbar {
+  padding: 30px;
+  background-color: white !important;
+}
+
+.navbar-brand { 
+  font-family: "Century Gothic";
+  font-size: xx-large;
+  font-weight: bolder;
+  color: red !important;
+}
+
+.nav-item {
+  font-family: 'Century Gothic';
+}
+
+.Ad-Image {
+  width: 1345px;
+  height: 880px;
+  padding-bottom: 50px;
+}
+.recommendations {
+  padding: 30px 40px 30px 80px;
+}
+
+.small-image {
+  padding: 15px;
+  border-radius: 15%;
+  width: 300px;
+  height: 300px;
+}
+
+h6 {
+  font-family: "Century Gothic";
+  font-size: xx-large;
+  font-weight: bolder;
+}
+
+.recommendation-group {
+  font-family: "Century Gothic";
+  font-size: large;
+  text-align: center;
+}
+
+.restaurant-name {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+.footer li {
+  display:inline;
+  padding: 10px 40px;
+  color: #666;
+}
+
