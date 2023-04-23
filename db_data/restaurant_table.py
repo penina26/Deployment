@@ -57,7 +57,7 @@ df.to_csv('db_data/restaurants.csv', index = False)
 sqliteConnection = sqlite3.connect('restaurant_recommender.db')
 cursor = sqliteConnection.cursor()
 
-# Create Table
+# Create Table Restaurants
 cursor.execute('''
 		CREATE TABLE IF NOT EXISTS restaurants (
         
@@ -69,6 +69,25 @@ cursor.execute('''
             number_of_reviews int,
             reviews TEXT,
             image TEXT)''')
+sqliteConnection.commit()
+#create table reviews
+cursor.execute('''
+		CREATE TABLE IF NOT EXISTS reviews ( 
+        review_id INTEGER PRIMARY KEY AUTOINCREMENT, 
+        user_id INTEGER, 
+        location nvarchar(50), 
+        rating INTEGER, 
+        restaurant nvarchar(50),
+        comments TEXT 
+    )''')
+#create users table
+cursor.execute('''
+		CREATE TABLE IF NOT EXISTS users ( 
+        user_id INTEGER PRIMARY KEY AUTOINCREMENT, 
+        user_name nvarchar(50), 
+        password nvarchar(128)         
+    )''')
+
 sqliteConnection.commit()
 #new df
 df = pd.read_csv('db_data/restaurants.csv')
