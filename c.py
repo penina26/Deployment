@@ -1,5 +1,7 @@
 import sqlite3
 import pandas as pd
+import random
+import dill as pickle
 
 
 #create connection
@@ -14,13 +16,37 @@ def default_recommendations(df):
     random_samples = df.sample(n = 10, replace = True)
     return random_samples
 
-v = default_recommendations(df)
 
-list = list(v.index)
-i = list[0]
-for index, row in v.iterrows():
-    if index == i:
-        name = v.at[index, 'restaurant']
-        print(name)
+def search_location(df):
+    locations = list(set(df['location']))
+    random_locations = random.sample(locations, 4)
+    return random_locations
 
-print('*' *2)
+with open('content_base_r.pkl' , 'rb') as f:
+    contentB_recommend = pickle.load(f)
+
+with open('model_pkl' , 'rb') as f:
+    hybrid_recommender = pickle.load(f)
+
+with open('restaurants.pkl' , 'rb') as f:
+    filtered_restaurant_df = pd.read_pickle(f)
+
+with open('sentence_processor.pkl' , 'rb') as f:
+    process_sentences = pickle.load(f)
+
+
+    
+with open('wards.pkl' , 'rb') as f:
+    constituents_list = pickle.load(f)
+
+with open('prices.pkl' , 'rb') as f:
+    price_map = pickle.load(f)
+
+def show_recomms(words):
+    query = words
+    recomms = hybrid_recommender(0,query)
+    return recomms
+
+print(show_recomms('tacos in Brooklyn'))
+print(filtered_restaurant_df)
+print('y')
