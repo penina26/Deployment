@@ -7,7 +7,7 @@ from wtforms.fields.simple import EmailField, PasswordField
 from wtforms.validators import DataRequired, URL,Email
 import sqlite3
 import pandas as pd
-#from flask_login import UserMixin,LoginManager,login_user,logout_user,current_user
+from flask_login import UserMixin,LoginManager,login_user,logout_user,current_user
 from werkzeug.security import generate_password_hash, check_password_hash
 import random
 import dill as pickle
@@ -18,10 +18,10 @@ from nltk.stem.wordnet import WordNetLemmatizer
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import linear_kernel
 import operator
-#nltk.download('stopwords')
-#nltk.download('punkt')
-#nltk.download('averaged_perceptron_tagger')
-#nltk.download('wordnet')
+nltk.download('stopwords')
+nltk.download('punkt')
+nltk.download('averaged_perceptron_tagger')
+nltk.download('wordnet')
 
 
 
